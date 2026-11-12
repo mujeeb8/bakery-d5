@@ -1,0 +1,74 @@
+/* Keep the logo in the header grid's center column so side links cannot overlap it. */
+@media (min-width: 761px) {
+  .site-header > .logo {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    justify-self: center;
+  }
+}
+
+/* Match the hero's loop-safe gold gradient so buttons do not visibly reset. */
+.button-gold {
+  background: linear-gradient(100deg, #a77432, #edcf8b, #aa7432);
+  background-size: 200% auto;
+}
+
+.footer-links .social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #e5c484;
+}
+
+.footer-links .social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.footer-links .social-link:hover {
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  footer > div:first-child,
+  .footer-links,
+  footer small {
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  .site-header nav {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms;
+  }
+
+  .site-header nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 12.5vw, 52px);
+    letter-spacing: -0.045em;
+  }
+}
